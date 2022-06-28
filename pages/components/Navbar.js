@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-import styles from '../../styles/Navbar.module.css'
-import { useRouter } from 'next/router'
-const Navbar = () =>{
+import styles from '../../styles/Navbar.module.css';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+const Navbar = () => {
     const router = useRouter();
-    return(
+    console.log(router);
+    return (
         <div className={styles.topnav}>
-            <a href="/" className={router.pathname=="/"?styles.active: ''}>Home</a>
-            <a href="/users" className={router.pathname=="/users"?styles.active: ''}>users</a>        
-            </div>
+            <Link href="/"><a className={router.pathname == "/" ? styles.active : ''}>Home</a></Link>
+            <Link href="/users"><a className={router.pathname == "/users" ? styles.active : ''}>Users</a></Link>
+        </div>
     )
 }
 

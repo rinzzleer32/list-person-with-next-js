@@ -1,16 +1,21 @@
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable @next/next/no-img-element */
 import styles from '../../styles/Card.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const UserCard = ({user}) => {
-    return(
-        <div class={styles.card}>
-        <img src={user.avatar} alt="Avatar" style={{width :'100%'}}/>
-        <div class={styles.container}>
-    <h4><b>{user.first_name} {user.last_name}</b></h4> 
-    <p>{user.email}</p> 
-  </div>
-</div>
+const UserCard = ({ user }) => {
+    return (
+        <div className={styles.card}>
+            <Image src={user.avatar} alt="Avatar" width={200} height={200} />
+            <div className={styles.container}>
+                <h4><b>{user.first_name} {user.last_name}</b></h4>
+                <p>{user.email}</p>
+                <Link href={`/users/${user.id}`}>
+                    <a className="button">Details</a>
+                </Link>
+            </div>
+        </div>
+
     )
 }
+
 export default UserCard
